@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Service4Service} from "./services/service4.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project8';
+
+  constructor(
+    public service4: Service4Service
+  ) {
+  }
+
 }

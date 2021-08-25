@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="top-section">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [formControlName]="'name'">
+        <mat-error *ngIf="get_form_control().name.invalid">{{get_errmsg_for_name()}}</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">{{isedit ? 'Edit' : 'Add'}}</button>
+      <button type="button" mat-raised-button color="warn" (click)="resetform()">Reset</button>
+    </form>
+  </div>
+
+  <div class="bottom-section">
+
+    <ng-container *ngIf="checktlists?.length > 0">
+      <app-checklist-item
+        *ngFor="let checklist of checktlists" [checklist]="checklist"
+        (editchecklistevent)="edit_checklist($event)"
+        (deletechecklistevent)="delete_checklist($event)"
+        (getchecklistevent)="get_checklist()"></app-checklist-item>
+    </ng-container>
+
+    <h2 *ngIf="checktlists?.length === 0">no checklist</h2>
+
+
+  </div>
+
+</div>
+
+<ngx-spinner></ngx-spinner>

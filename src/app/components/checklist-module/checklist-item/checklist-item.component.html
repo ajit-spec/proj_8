@@ -1,0 +1,14 @@
+<div class="container" *ngIf="checklist">
+  <div class="text">
+    <mat-checkbox [(ngModel)]="checklist.iscompleted" color="primary" (change)="checked($event)"></mat-checkbox>
+    <p>{{checklist.name}}</p>
+  </div>
+  <div class="btn-wrapper">
+    <button mat-icon-button color="accent" (click)="edit_checklist()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="delete_checklist()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
